@@ -43,8 +43,9 @@ namespace Cactbot {
           result.OverlayData = value.ToObject<Dictionary<string, string>>();
         }
 
-        if (obj.TryGetValue("RemoteVersionSeen", out value)) {
-          result.RemoteVersionSeen = value.ToString();
+        if (obj.TryGetValue("LastUpdateCheck", out value)) {
+          var date = DateTime.Parse(value.ToString(), System.Globalization.CultureInfo.InvariantCulture);
+          result.LastUpdateCheck = date;
         }
 
         if (obj.TryGetValue("UserConfigFile", out value)) {
@@ -65,7 +66,7 @@ namespace Cactbot {
 
     public Dictionary<string, string> OverlayData = null;
     
-    public string RemoteVersionSeen = "0.0";
+    public DateTime LastUpdateCheck;
     
     public string UserConfigFile = "";
 

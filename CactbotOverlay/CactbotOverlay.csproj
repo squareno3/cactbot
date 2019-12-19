@@ -66,6 +66,10 @@
     <Reference Include="OverlayPlugin.Core">
       <HintPath>ThirdParty\OverlayPlugin\OverlayPlugin.Core.dll</HintPath>
     </Reference>
+    <Reference Include="OverlayPlugin.Updater, Version=0.11.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ThirdParty\OverlayPlugin\libs\OverlayPlugin.Updater.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
