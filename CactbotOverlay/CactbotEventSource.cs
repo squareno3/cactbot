@@ -1,8 +1,11 @@
 ﻿using Advanced_Combat_Tracker;
 using Newtonsoft.Json.Linq;
+using RainbowMage.HtmlRenderer;
 using RainbowMage.OverlayPlugin;
+using RainbowMage.OverlayPlugin.Overlays;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -142,7 +145,21 @@ namespace Cactbot {
 
     public override System.Windows.Forms.Control CreateConfigControl()
     {
-      return new CactbotEventSourceConfigPanel(this);
+      var control = new OverlayControl();
+      var initDone = false;
+
+      var configFile = "ui/config/config.html";
+      var dir = new VersionChecker(this).GetCactbotDirectory();
+      var url = Path.GetFullPath(Path.Combine(dir, configFile));
+
+      control.VisibleChanged += (o, e) => {
+        if (initDone)
+          return;
+        initDone = true;
+        control.Init(url);
+        MinimalApi.AttachTo(control.Renderer);
+      };
+      return control;
     }
 
     public override void LoadConfig(IPluginConfig config)
