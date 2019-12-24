@@ -2,6 +2,10 @@
 
 let UserConfig = {
   getUserConfigLocation: function(overlayName, callback) {
+    window.addOverlayListener('onForceReload', () => {
+      window.location.reload();
+    });
+
     callOverlayHandler({
       call: 'cactbotLoadUser',
       source: location.href,
