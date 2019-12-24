@@ -342,7 +342,7 @@ namespace Cactbot {
       // * Some overlays behave slightly different from the above explanation. Raidboss for example loads data files
       //   in addition to the listed steps. I think it's even loading them twice since raidboss.js loads the data files
       //   for gTimelineController and popup-text.js requests them again for its own purposes.
-     
+
       bool game_exists = ffxiv_.FindProcess();
       if (game_exists != notify_state_.game_exists) {
         notify_state_.game_exists = game_exists;
@@ -650,13 +650,13 @@ namespace Cactbot {
     private void StartFileWatcher() {
       watchers = new List<FileSystemWatcher>();
       var paths = new List<string>();
-      
+
       paths.Add(CactbotEventSourceConfig.CactbotDllRelativeUserUri);
       paths.Add(Config.UserConfigFile);
 
       foreach (var path in paths) {
         if (path == "" || !Directory.Exists(path)) continue;
-        
+
         var watcher = new FileSystemWatcher()
         {
           Path = path,
