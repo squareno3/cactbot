@@ -542,11 +542,11 @@ class PopupText {
         let lang = this.options.AlertsLanguage || this.options.Language || 'en';
         let arrowReplacement = {
           en: ' then ',
-          cn: ' ', // FIXME
+          cn: ' 然後 ', // FIXME
           de: ' dann ',
           fr: ' puis ',
-          ja: ' ', // FIXME
-          ko: ' ', // FIXME
+          ja: ' それから ', // FIXME
+          ko: ' 그때 ', // FIXME
         };
         ttsText = ttsText.replace(/\s*(<[-=]|[=-]>)\s*/, arrowReplacement[lang]);
         let cmd = { 'call': 'cactbotSay', 'text': ttsText };
